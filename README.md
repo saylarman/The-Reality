@@ -80,7 +80,7 @@ cat key
 ```
 _If you want a find a domian for **serverNames** use this_
 ```bash
-xray tls ping YOUR-DMIAN
+xray tls ping YOUR-DOMAIN
 ```
 _You can see the results like this_
 
