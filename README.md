@@ -544,7 +544,7 @@ systemctl restart apache2
 ```
 _**You can also bring an HTML page up next to PHP**_
 
-_If you want see a test go to this address _
+_If you want see a test go to this address_
 
 _**http://159.223.202.161/**_
 
@@ -636,10 +636,6 @@ nano .htaccess
 ```
 _You can see the **index.php** change **.php** to **.html** and save_
 
-_Restart **Apache**_
-```bash
-systemctl restart apache2
-```
 ### 7 -[ Using Nginx, No need to Php or... ]
 
 _Please allow **HTTP** port in ufw before install_
