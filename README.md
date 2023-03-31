@@ -325,7 +325,7 @@ _**Trojan Reality gRPC, H2**_
         "servers": [
             "https+local://cloudflare-dns.com/dns-query",
             "1.0.0.1",
-             "1.1.1.1",
+            "1.1.1.1",
             "8.8.8.8",
             "8.8.4.4",
             "localhost"
