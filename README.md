@@ -474,7 +474,7 @@ _**If you want to get a certificate for your page, use these codes**_
 _Please allow **HTTPS** port in ufw before install_
 ```bash
 apt install certbot python3-certbot-apache -y
-certbot --apache2 -d YOUR-DOMAIN
+certbot --apache -d YOUR-DOMAIN
 apt install ca-certificates apt-transport-https software-properties-common -y
 apt install php8.1 -y
 ```
