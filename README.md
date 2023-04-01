@@ -478,6 +478,10 @@ certbot --apache -d YOUR-DOMAIN
 apt install ca-certificates apt-transport-https software-properties-common -y
 apt install php8.1 -y
 ```
+_**If you get this Erorr use this code ( Unable to correct problems, you have held broken packages. )**_
+```bash
+sudo apt-get remove apache* && sudo apt-get install apache2
+```
 _Now go to this Directory_
 ```bash
 cd /var/www/html/
