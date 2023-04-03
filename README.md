@@ -5,6 +5,10 @@ If an explanation is needed, I will write for each part, otherwise you can find 
 
 _**I don't give you any guarantee that your server will not be filtered!**_
 
+_**If you think there is wrong information on this GitHub page, or if you have any comments, you can send a message to this address on Telegram.**_
+
+**tg://openmessage?user_id=2036196665 ( Copy this and open in your Telegram )**
+
 ### 1 -[ Install BBR ]
  _If you have high users enable this_
 ```bash
@@ -36,7 +40,7 @@ _Block the old **SSH** port_
 ufw status numbered
 ```
 ```bash
-ufw delete Nu
+ufw delete SSH-OLD-PORT
 ```
 _Note that some providers do not allow changing the port!_
 
@@ -106,7 +110,7 @@ nano /usr/local/etc/xray/config.json
 ```
 _First remove the **{}** in the config.json file, Now you can add the codes_
 
-_**Vless Reality TCP, gRPC, H2**_
+_**Only Vless Reality TCP, gRPC, H2**_
 ```bash
 {
     "inbounds": [
@@ -246,7 +250,20 @@ _**Vless Reality TCP, gRPC, H2**_
     }
 }
 ```
-_**Trojan Reality gRPC, H2**_
+_**If no need to Proxy block, you can remove**_
+```bash
+           {
+            "domain": [
+                "instagram.com",
+                "www.instagram.com",
+                "mediafire.com",
+                "www.mediafire.com"
+                ],
+            "outboundTag": "proxy",
+            "type": "field"
+        },
+```
+_**Only Trojan Reality gRPC, H2**_
 ```bash
 {
     "inbounds": [
