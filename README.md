@@ -66,10 +66,8 @@ _Because I added **-u root**, there is no need to change the Xray configuration 
 ### -[ install dlc.dat and iran.dat ]
 _This section is for blocking Ads, Iran domians or IPs, Porn Websites and..._
 ```bash
-cd /usr/local/share/xray/
-wget https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/iran.dat
-wget https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat
-cd
+wget -O /usr/local/share/xray/iran.dat https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/iran.dat
+wget -O /usr/local/share/xray/dlc.dat https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat
 ```
 _These files are constantly being updated, so delete the old version every few days and download the new version!_
 ### -[ For get Pub Key and Priv Key ]
@@ -225,6 +223,7 @@ _**Only Vless Reality TCP, gRPC, H2**_
                 "ext:iran.dat:ir",
                 "ext:iran.dat:ads",
                 "ext:iran.dat:other",
+                "geosite:category-ir",
                 "geosite:category-ir-gov",
                 "geosite:category-ir-news",
                 "geosite:category-ir-bank",
@@ -375,6 +374,7 @@ _**Only Trojan Reality gRPC, H2**_
                 "ext:iran.dat:ir",
                 "ext:iran.dat:ads",
                 "ext:iran.dat:other",
+                "geosite:category-ir",
                 "geosite:category-ir-gov",
                 "geosite:category-ir-news",
                 "geosite:category-ir-bank",
@@ -458,7 +458,8 @@ _If want block **Porns** and this_
 _If want block **Ads** and this_
 ```bash
                 "geosite:category-ads-all",
-                "geosite:google-ads",
+                "geosite:category-ads",
+                "geosite:google-ads"
 ```
 _It does not block all advertisements, it is possible that a series of programs may encounter problems, to solve this problem, define those programs in the Proxy section._
 
@@ -760,8 +761,26 @@ _Now restart **Nginx**_
 ```bash
 systemctl restart nginx
 ```
-## Other
-_**I recommend reading or viewing these pages**_
+### -[ Other ]
+_If your users cannot access some sites ( **if you use IPv6** ), enter this command._
+```bash
+sysctl -w net.ipv6.conf.all.disable_ipv6=1 sysctl -w net.ipv6.conf.default.disable_ipv6=1 sysctl -w net.ipv6.conf.lo.disable_ipv6=1
+```
+_**For Test Speed**_
+
+_https://speed.hetzner.de/1GB.bin_
+
+_https://speed.hetzner.de/10GB.bin_
+
+_http://speedtest-sgp1.digitalocean.com/5gb.test_
+
+_Friends who want to see CPU and Ram status of Linux server in command line,  To check the download and upload status of the network, with the **htop** command, and **F10 to exit**_
+```bash
+apt install nload
+```
+_Ctrl+C to exit_
+### -[ Recommendations ]
+_I recommend reading or viewing these pages_
   - [_**How to find the site for REALITY ( Persian )**_](https://telegra.ph/%D9%86%D8%AD%D9%88%D9%87-%D9%BE%DB%8C%D8%AF%D8%A7-%DA%A9%D8%B1%D8%AF%D9%86-%D8%B3%D8%A7%DB%8C%D8%AA-%D8%A8%D8%B1%D8%A7%DB%8C-REALITY-03-11)
   - [_**Teaching the use of REALITY ( Persian )**_](https://telegra.ph/%D8%A2%D9%85%D9%88%D8%B2%D8%B4-%D8%A7%D8%B3%D8%AA%D9%81%D8%A7%D8%AF%D9%87-%D8%A7%D8%B2-REALITY-03-10)
   - [_**Project X Documents Of Configs**_](https://xtls.github.io/config/)
@@ -775,6 +794,6 @@ _**I recommend reading or viewing these pages**_
   - [_**Dev分享**_](https://idev.dev/)
   - [_**Mr.xiao**_](https://www.losem.tk/)
 
-_**Thanks to the friends for helped me in the web field**_
+_Thanks to the friends for helped me in the web field_
 
-_**Written by Arsham.6ix.**_
+_*Written by Arsham.6ix._
