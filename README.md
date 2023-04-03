@@ -70,6 +70,51 @@ wget -O /usr/local/share/xray/iran.dat https://github.com/bootmortis/iran-hosted
 wget -O /usr/local/share/xray/dlc.dat https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat
 ```
 _These files are constantly being updated, so delete the old version every few days and download the new version!_
+
+_**If you want files to be downloaded and updated every 24 hours or..., do this**_
+
+_We do this with Python, download the prerequisites_
+```bash
+apt update -y && apt upgrade -y && apt install python3 && apt install screen -y
+```
+_In root directory, create a **geo.py**_ 
+```bash
+nano geo.py
+```
+_Now add these codes and save_
+```bash
+import time
+import os
+
+while True:
+import os
+import time
+p1 = os.path.exists(r'/usr/local/share/xray/iran.dat')
+p2 = os.path.exists(r'/usr/local/share/xray/dlc.dat')
+while True:
+    if p1:
+        os.remove("/usr/local/share/xray/iran.dat")
+        os.system("wget -O /usr/local/share/xray/iran.dat https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/iran.dat")
+
+    if p2:
+        os.remove("/usr/local/share/xray/dlc.dat")
+        os.system("wget -O /usr/local/share/xray/dlc.dat https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat")
+    time.sleep(172800)
+```
+_**These times are in seconds**_
+
+_86400 = 1 day_
+
+_172800 = 2 day_
+
+_259200 = 3 day_
+
+_In order for the Python file to have access and be able to work 24 hours a day, use the following commands_
+```bash
+chmod +x geo.py && screen -c geo.py
+```
+
+_**Thanks to @Keyvan_bgham for the this part**_
 ### -[ For get Pub Key and Priv Key ]
 _Save the **Pub Key** and **Priv Key** in a text file or save it on your server_
 ```bash
@@ -796,4 +841,4 @@ _I recommend reading or viewing these pages_
 
 _Thanks to the friends for helped me in the web field_
 
-_*Written by Arsham.6ix._
+_Written by Arsham.6ix._
