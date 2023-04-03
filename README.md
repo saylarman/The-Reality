@@ -86,11 +86,9 @@ _Now add these codes and save_
 import time
 import os
 
-while True:
-import os
-import time
 p1 = os.path.exists(r'/usr/local/share/xray/iran.dat')
 p2 = os.path.exists(r'/usr/local/share/xray/dlc.dat')
+
 while True:
     if p1:
         os.remove("/usr/local/share/xray/iran.dat")
