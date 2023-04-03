@@ -9,7 +9,7 @@ _**If you think there is wrong information on this GitHub page, or if you have a
 
 **tg://openmessage?user_id=2036196665 ( Copy this and open in your Telegram )**
 
-### 1 -[ Install BBR ]
+### -[ Install BBR ]
  _If you have high users enable this_
 ```bash
 echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
@@ -17,7 +17,7 @@ echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
 sysctl -p
 ```
 _I use this because it's good_
-### 2 -[ Change SSH port ]
+### -[ Change SSH port ]
 _I recommend changing the port, you can change it if you want_
 
 _If you don't have the netstat tool, you can install it_
@@ -39,8 +39,9 @@ _Block the old **SSH** port_
 ```bash
 ufw status numbered
 ```
+_**ufw delete SSH-OLD-PORT**_
 ```bash
-ufw delete SSH-OLD-PORT
+ufw delete
 ```
 _Note that some providers do not allow changing the port!_
 
@@ -57,12 +58,12 @@ _If you are using **UFW**, open a new **SSH** port_
 ufw allow 45678/tcp
 ```
 _The **45678** is a example_
-### 3 -[ Install Xray v1.8.0 ]
+### -[ Install Xray v1.8.0 ]
 ```bash
 bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install --version 1.8.0 -u root
 ```
 _Because I added **-u root**, there is no need to change the Xray configuration to change "user"._
-### 4 -[ install dlc.dat and iran.dat ]
+### -[ install dlc.dat and iran.dat ]
 _This section is for blocking Ads, Iran domians or IPs, Porn Websites and..._
 ```bash
 cd /usr/local/share/xray/
@@ -71,7 +72,7 @@ wget https://github.com/v2fly/domain-list-community/releases/latest/download/dlc
 cd
 ```
 _These files are constantly being updated, so delete the old version every few days and download the new version!_
-### 5 -[ For get Pub Key and Priv Key ]
+### -[ For get Pub Key and Priv Key ]
 _Save the **Pub Key** and **Priv Key** in a text file or save it on your server_
 ```bash
 xray x25519 > key
@@ -83,8 +84,10 @@ _You can use **cat** for see **key**_
 cat key
 ```
 _If you want a find a domian for **serverNames** use this_
+
+_**xray tls ping YOUR-DOMAIN**_
 ```bash
-xray tls ping YOUR-DOMAIN
+xray tls ping
 ```
 _You can see the results like this_
 
@@ -104,7 +107,7 @@ _2- Because Reality uses **Tls v1.3** and need **H2** protocol, be sure to check
 _For check **Tls version** protocol, Go to domian and open **Dev Tools** and go to **Security Tab**, and in **Connection** you can check the Protocol of **Tls**_
 
 _For check **H2** protocol, Go to domian and open **Dev Tools** and go to **Network tab**, you can see a **Status** click right and enable **Protocol** if you can see **H2** it's true_
-### 6 -[ Change config.json of Xray ]
+### -[ Change config.json of Xray ]
 ```bash
 nano /usr/local/etc/xray/config.json
 ```
@@ -476,7 +479,7 @@ _or_
 
 _**http://159.223.202.134/Ex/Ex/Ex** ( Test Redirect )_
 
-### 7 -[ Install Apache 2 and Php 8.1 ]
+### -[ Install Apache 2 and Php 8.1 ]
 _Please allow **HTTP** port in ufw before install_
 ```bash
 ufw allow http
@@ -657,7 +660,7 @@ nano .htaccess
 ```
 _You can see the **index.php** change **.php** to **.html** and save_
 
-### 7 -[ Using Nginx, No need to Php or... ]
+### -[ Using Nginx, No need to Php or... ]
 
 _Please allow **HTTP** port in ufw before install_
 ```bash
