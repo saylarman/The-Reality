@@ -611,10 +611,6 @@ _If your users cannot access some sites ( **if you use IPv6** ), enter this comm
 ```bash
 sysctl -w net.ipv6.conf.all.disable_ipv6=1 sysctl -w net.ipv6.conf.default.disable_ipv6=1 sysctl -w net.ipv6.conf.lo.disable_ipv6=1
 ```
-_Restart Nginx_
-```bash
-systemctl restart nginx
-```
 ### -[ Recommendations ]
 _I recommend reading or viewing these pages_
   - [_**How to find the site for REALITY ( Persian )**_](https://telegra.ph/%D9%86%D8%AD%D9%88%D9%87-%D9%BE%DB%8C%D8%AF%D8%A7-%DA%A9%D8%B1%D8%AF%D9%86-%D8%B3%D8%A7%DB%8C%D8%AA-%D8%A8%D8%B1%D8%A7%DB%8C-REALITY-03-11)
