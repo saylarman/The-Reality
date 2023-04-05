@@ -547,7 +547,6 @@ _Now add these codes_
 ```bash
 <html>
     <head>
-        <link rel="icon" type="image/x-icon" href="http://YOUR-IP-OR-DOMAIN/kozu.gif">
         <meta name="viewport" content="user-scalable=no">
         <meta charset="UTF-8">
         <title>=)</title>
