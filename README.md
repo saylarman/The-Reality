@@ -534,9 +534,9 @@ _Now go to this Directory_
 ```bash
 cd /var/www/html/
 ```
-_Remove the **index.html** file_
+_Remove the **index.nginx-debian.html** file_
 ```bash
-rm index.html
+rm index.nginx-debian.html
 ```
 _Create a **index.html** file_
 ```bash
