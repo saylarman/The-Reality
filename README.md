@@ -592,6 +592,20 @@ img {
     </body>
 </html>
 ```
+_I recommend you download and use your image or gif in your web root, like this_
+
+_**https://s10.gifyu.com/images/kozu.gif**_
+
+_Change to this_
+
+_**http://YOUR-IP-OR-DOMAIN/kozu.gif**_
+
+_You can download the gif or... in your server with **wget**_
+```bash
+wget https://s10.gifyu.com/images/kozu.gif 
+```
+_Be sure to pay attention to the names to be correct!_
+
 _Now go to your **Nginx configuration** for **Redirect** all to **index.html**_
 ```bash
 nano /etc/nginx/sites-enabled/default
