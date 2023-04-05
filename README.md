@@ -105,8 +105,16 @@ _259200 = 3 day_
 
 _In order for the Python file to have access and be able to work 24 hours a day, use the following commands_
 ```bash
-chmod +x geo.py && screen -c geo.py
+chmod +x geo.py
 ```
+```bash
+screen python3 geo.py
+```
+_Ctrl + a, After D for exit_ 
+```bash
+screen -ls
+```
+_For check it's ruining or not_
 ### -[ For get Pub Key and Priv Key ]
 _Save the **Pub Key** and **Priv Key** in a text file or save it on your server_
 ```bash
