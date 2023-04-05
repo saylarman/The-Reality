@@ -5,10 +5,6 @@ If an explanation is needed, I will write for each part, otherwise you can find 
 
 _**I don't give you any guarantee that your server will not be filtered!**_
 
-_**If you think there is wrong information on this GitHub page, or if you have any comments, you can send a message to this address on Telegram.**_
-
-**tg://openmessage?user_id=2036196665 ( Copy this and open in your Telegram )**
-
 ### -[ Install BBR ]
  _If you have high users enable this_
 ```bash
@@ -111,8 +107,6 @@ _In order for the Python file to have access and be able to work 24 hours a day,
 ```bash
 chmod +x geo.py && screen -c geo.py
 ```
-
-_**Thanks to @Keyvan_bgham for the this part**_
 ### -[ For get Pub Key and Priv Key ]
 _Save the **Pub Key** and **Priv Key** in a text file or save it on your server_
 ```bash
@@ -160,26 +154,26 @@ _**Only Vless Reality TCP, gRPC, H2**_
     "inbounds": [
         {
             "listen": "0.0.0.0",
-            "port": 443, # Note : You can change port
+            "port": 443,
             "protocol": "vless",
             "settings": {
                 "clients": [
                 {
                     "id": "EX", # Your UUID
-                    "flow": "" # If you want use TCP, add ( xtls-rprx-vision ) else no need to change
+                    "flow": "" # If you want use TCP, add xtls-rprx-vision else no need to change
                 }
                 ],
                 "decryption": "none"
             },
             "streamSettings": {
-                "network": "EX", # You can change this to ( h2, grpc, tcp ) I Recommend grpc
+                "network": "EX", # You can change this to h2, grpc, tcp, I Recommend grpc
                 "security": "reality",
                 "realitySettings": {
                     "show": true,
-                    "dest": "EX", # Example : ( ftp.debian.org:443, www.debian.org:443 or etc...)
+                    "dest": "EX", # Example : ftp.debian.org:443 or etc...
                     "xver": 0, # I suggest that you use the same site for dest from the site you use for serverNames
                     "serverNames": [
-                    "EX" # Example : ( ftp.debian.org )
+                    "EX" # Example : ftp.debian.org
                     ],
                     "privateKey": "EX", # Your Private Key
                     "shortIds": [
@@ -313,24 +307,24 @@ _**Only Trojan Reality gRPC, H2**_
 {
     "inbounds": [
       {
-          "port": 443, # You can change port
+          "port": 443,
           "protocol": "trojan",
           "settings": {
               "clients": [
               {
-                  "password": "EX" # Your UUID ( Pass )
+                  "password": "EX" # Your UUID
               }
               ]
           },
           "streamSettings": {
-              "network": "grpc", # You can change this to ( h2 or grpc )
+              "network": "EX", # You can change this to h2 or grpc
               "security": "reality",
               "realitySettings": {
                   "show": true,
-                  "dest": "EX", # Example : ( ftp.debian.org:443, www.debian.org:443 or etc...)
+                  "dest": "EX", # Example : ftp.debian.org:443 or etc...
                   "xver": 0, # I suggest that you use the same site for dest from the site you use for serverNames
                   "serverNames": [
-                  "EX" # Example : ( ftp.debian.org )
+                  "EX" # Example : ftp.debian.org
                   ],
                   "privateKey": "EX", # Your Private Key
                   "shortIds": [
@@ -511,200 +505,8 @@ _Now restart Xray and check status for this working **normally** or **not**_
 systemctl restart xray.service
 systemctl status xray.service
 ```
-_**We're done with xray, now you can add the configuration to your app, then we want it to automatically download a file if a request comes in on port 80.**_
-
-_If you want see a test go to this address_
-
-_Note : Copy url and open a new tab for test_
-
-_**http://159.223.202.134/**_
-
-_or_
-
-_**http://159.223.202.134/Ex/Ex/Ex** ( Test Redirect )_
-
-### -[ Install Apache 2 and Php 8.1 ]
-_Please allow **HTTP** port in ufw before install_
-```bash
-ufw allow http
-```
-_Now can install_
-```bash
-apt install ca-certificates apt-transport-https software-properties-common -y
-apt install php8.1 -y
-```
-_**If you want to get a certificate for your page, use these codes**_
-
-_Please allow **HTTPS** port in ufw before install_
-```bash
-apt install certbot python3-certbot-apache -y
-certbot --apache -d YOUR-DOMAIN
-apt install ca-certificates apt-transport-https software-properties-common -y
-apt install php8.1 -y
-```
-_**If you get this Erorr use this code ( Unable to correct problems, you have held broken packages. )**_
-```bash
-sudo apt-get remove apache* && sudo apt-get install apache2
-```
-_Now go to this Directory_
-```bash
-cd /var/www/html/
-```
-_Remove the **index.html** file_
-```bash
-rm index.html
-```
-_Now create a **Ex.txt** file and add anything in file, you can change file name if want_
-```bash
-nano Ex.txt
-```
-_Create a **index.php** file_
-```bash
-nano index.php
-```
-_Now add these codes_
-```bash
-<?php
-$original_filename = 'Ex.txt'; # Change here is you charged Ex.txt in
-$new_filename = 'Ex'; # Change here if want
-header("Content-Type: application/jpeg");
-header("Content-Length: " . filesize($original_filename));
-header('Content-Disposition: attachment; filename="' . $new_filename . '"');
-readfile($original_filename);
-exit;
-?>
-```
-_Now create a **htaccess** file, for redirect all to **index.php**_
-```bash
-nano .htaccess
-```
-_Add these codes_
-```bash
-<IfModule mod_rewrite.c>
-    <IfModule mod_negotiation.c>
-    Options -MultiViews -Indexes
-    </IfModule>
-    RewriteEngine on
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ /index.php?path=$1 [NC,L,QSA]
-</IfModule>
-```
-_Now change **000-default.conf**, because we want use **htaccess** file need to add these codes_
-```bash
-nano /etc/apache2/sites-available/000-default.conf
-```
-_And add these codes first_
-```bash
-<Directory /var/www/html>
-    Options Indexes FollowSymLinks
-    AllowOverride All
-    Require all granted
-</Directory>
-```
-_Because we want use **htaccess** file need to enable **rewrite**_
-```bash
-a2enmod rewrite
-```
-_Restart **Apache** for apply changes_
-```bash
-systemctl restart apache2
-```
-_**You can also bring an HTML page up next to PHP**_
-
-_If you want see a test go to this address_
-
-_**http://159.223.202.161/**_
-
-_or_
-
-_**http://159.223.202.161/Ex/Ex/Ex** ( Test Redirect )_
-
-_Go to root of your web page directory_
-```bash
-cd /var/www/html/
-```
-_Change **index.php** to any name for example **Ex.php** and create a **index.html**_
-
-```bash
-mv index.php Ex.php
-```
-```bash
-nano index.html
-```
-_Now add these codes_
-```bash
-<html>
-    <head>
-        <link rel="icon" type="image/x-icon" href="https://s10.gifyu.com/images/kozu.gif">
-        <meta name="viewport" content="user-scalable=no">
-        <meta charset="UTF-8">
-        <meta http-equiv="refresh" content="0;url=http://YOUR-IP-OR-DOMAIN/Ex.php"> # default time for download is zero, you can change it
-        <title>=)</title>
-        <style>
-body {
-        margin-top: 60px;
-       -webkit-user-select: none;
-       -ms-user-select: none;
-        user-select: none;
-        overflow-x: hidden;
-        background: #FDFAFA;
-        font-weight: 350;
-        font-family: -apple-system, BlinkMacSystemFont, opensans, Optima, 'Microsoft Yahei', sans-serif;
-        line-height: 0;
-}
-
-.kozu {
-        padding: 40px 0;
-}
-.kozu p {
-        color: #000;
-        font-style: italic;
-        text-decoration:none;
-        letter-spacing: 1px;
-        cursor: default;
-        text-align:center;
-        font-size:32px;
-}
-img {
-        pointer-events: none;
-        margin: auto;
-        display: block;
-}
-.isBold { font-weight: bold;
-}
-</style>
-    </head>
-    <body><img loading="lazy" src="https://s10.gifyu.com/images/kozu.gif" alt="Kozu" class="center">
-        <div class="kozu">
-            <p>This IP belongs to <span class="isBold">ARSHAM.6IX</span></p> # Text
-        </div>
-    </body>
-</html>
-```
-_I recommend you download and use your image or gif in your web root, like this_
-
-_**https://s10.gifyu.com/images/kozu.gif**_
-
-_Change to this_
-
-_**http://YOUR-IP-OR-DOMAIN/kozu.gif**_
-
-_You can download the gif or... in your server with **wget**_
-```bash
-wget https://s10.gifyu.com/images/kozu.gif 
-```
-_Be sure to pay attention to the names to be correct!_
-
-_Now need to redirect all to **index.html**_
-
-_Need edit the **htaccess** file_
-```bash
-nano .htaccess
-```
-_You can see the **index.php** change **.php** to **.html** and save_
-
-### -[ Using Nginx, No need to Php or... ]
+### -[ Install Nginx ]
+_**To be able to bring up a simple page**_
 
 _Please allow **HTTP** port in ufw before install_
 ```bash
@@ -718,9 +520,16 @@ _**If you want to get a certificate for your page, use these codes**_
 
 _Please allow **HTTPS** port in ufw before install_
 ```bash
-apt install certbot python3-certbot-nginx -y
-certbot --nginx -d YOUR-DOMAIN
+ufw allow https
 ```
+_Now can install_
+```bash
+apt install nginx -y
+apt install certbot python3-certbot-nginx -y
+certbot --nginx -d
+```
+_certbot --nginx -d YOUR-DOMAIN_
+
 _Now go to this Directory_
 ```bash
 cd /var/www/html/
@@ -728,10 +537,6 @@ cd /var/www/html/
 _Remove the **index.html** file_
 ```bash
 rm index.html
-```
-_Now create a **Ex** file and add anything in file, you can change file name if want_
-```bash
-nano Ex
 ```
 _Create a **index.html** file_
 ```bash
@@ -745,7 +550,6 @@ _Now add these codes_
         <link rel="icon" type="image/x-icon" href="http://YOUR-IP-OR-DOMAIN/kozu.gif">
         <meta name="viewport" content="user-scalable=no">
         <meta charset="UTF-8">
-        <meta http-equiv="refresh" content="0;url=http://YOUR-IP-OR-DOMAIN/Ex"> # default time for download is zero, you can change it
         <title>=)</title>
         <style>
 body {
@@ -783,13 +587,11 @@ img {
     </head>
     <body><img loading="lazy" src="http://YOUR-IP-OR-DOMAIN/kozu.gif" alt="Kozu" class="center">
         <div class="kozu">
-            <p>This IP belongs to <span class="isBold">ARSHAM.6IX</span></p> # Text
+            <p>This IP belongs to <span class="isBold">ARSHAM.6IX</span></p>
         </div>
     </body>
 </html>
 ```
-_**Be sure to pay attention to the names to be correct if want to change!**_
-
 _Now go to your **Nginx configuration** for **Redirect** all to **index.html**_
 ```bash
 nano /etc/nginx/sites-enabled/default
@@ -809,19 +611,10 @@ _If your users cannot access some sites ( **if you use IPv6** ), enter this comm
 ```bash
 sysctl -w net.ipv6.conf.all.disable_ipv6=1 sysctl -w net.ipv6.conf.default.disable_ipv6=1 sysctl -w net.ipv6.conf.lo.disable_ipv6=1
 ```
-_**For Test Speed**_
-
-_https://speed.hetzner.de/1GB.bin_
-
-_https://speed.hetzner.de/10GB.bin_
-
-_http://speedtest-sgp1.digitalocean.com/5gb.test_
-
-_Friends who want to see CPU and Ram status of Linux server in command line,  To check the download and upload status of the network, with the **htop** command, and **F10 to exit**_
+_Restart Nginx_
 ```bash
-apt install nload
+systemctl restart nginx
 ```
-_Ctrl+C to exit_
 ### -[ Recommendations ]
 _I recommend reading or viewing these pages_
   - [_**How to find the site for REALITY ( Persian )**_](https://telegra.ph/%D9%86%D8%AD%D9%88%D9%87-%D9%BE%DB%8C%D8%AF%D8%A7-%DA%A9%D8%B1%D8%AF%D9%86-%D8%B3%D8%A7%DB%8C%D8%AA-%D8%A8%D8%B1%D8%A7%DB%8C-REALITY-03-11)
