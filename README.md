@@ -504,7 +504,7 @@ _If want block **Ads** and this_
 ```bash
                 "geosite:category-ads-all",
                 "geosite:category-ads",
-                "geosite:google-ads"
+                "geosite:google-ads",
 ```
 _It does not block all advertisements, it is possible that a series of programs may encounter problems, to solve this problem, define those programs in the Proxy section._
 
