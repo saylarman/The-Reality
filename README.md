@@ -177,7 +177,7 @@ _**Only Vless Reality TCP, gRPC, H2**_
                 "network": "EX", # You can change this to h2, grpc, tcp, I Recommend grpc
                 "security": "reality",
                 "realitySettings": {
-                    "show": true,
+                    "show": false,
                     "dest": "EX", # Example : ftp.debian.org:443 or etc...
                     "xver": 0, # I suggest that you use the same site for dest from the site you use for serverNames
                     "serverNames": [
