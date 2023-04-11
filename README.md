@@ -145,9 +145,11 @@ _**Note :**_
 
 _1- Allowed domains may also have Star ( **Like this** > **\*.debian.org** ) which are not supported yet_
 
-_2- Because Reality uses **Tls v1.3** and need **H2** protocol, be sure to check with your browser's Dev Option that the desired site uses Tls **1.3** and **H2**_
+_2- Because Reality uses **Tls v1.3** and need **H2** protocol and **X25519**, be sure to check with your browser's Dev Option that the desired site uses Tls **1.3** and **H2** and **X25519**_
 
 _For check **Tls version** protocol, Go to domian and open **Dev Tools** and go to **Security Tab**, and in **Connection** you can check the Protocol of **Tls**_
+
+_For check **keyExchangeGroup** protocol, Go to domian and open **Dev Tools** and go to **Security Tab**, and in **Connection** you can check the Protocol of **X25519**_
 
 _For check **H2** protocol, Go to domian and open **Dev Tools** and go to **Network tab**, you can see a **Status** click right and enable **Protocol** if you can see **H2** it's true_
 ### -[ Change config.json of Xray ]
