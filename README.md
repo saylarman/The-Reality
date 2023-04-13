@@ -1,10 +1,5 @@
 # The Reality
 
-_Hello, my name is Arsham, I have been testing Reality Tls for a few weeks and I was satisfied with it, of course, I also did other things that I plan to teach you in this tutorial.
-If an explanation is needed, I will write for each part, otherwise you can find the result yourself with a simple search._
-
-_**I don't give you any guarantee that your server will not be filtered!**_
-
 ### -[ Install BBR ]
  _If you have high users enable this_
 ```bash
