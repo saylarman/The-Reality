@@ -1,5 +1,7 @@
 # The Reality
 
+**I don't give you any guarantee that your server will not be filtered!**
+
 ### -[ Install BBR ]
  _If you have high users enable this_
 ```bash
