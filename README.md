@@ -367,6 +367,16 @@ _If want block **Ads** and this_
                 "geosite:category-ads-all",
                 "geosite:category-ads",
                 "geosite:google-ads",
+                "geosite:apple-ads",
+                "geosite:applovin-ads",
+                "geosite:amazon-ads",
+                "geosite:alibaba-ads",
+                "geosite:adobe-ads",
+                "geosite:adjust-ads",
+                "geosite:kugou-ads",
+                "geosite:mixpanel-ads",
+                "geosite:ookla-speedtest-ads",
+                "geosite:mxplayer-ads",
 ```
 _It does not block all advertisements, it is possible that a series of programs may encounter problems, to solve this problem, define those programs in the Proxy section._
 
