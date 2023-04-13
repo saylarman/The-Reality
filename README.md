@@ -414,6 +414,20 @@ _Now go to this Directory_
 ```bash
 cd /var/www/html/
 ```
+_I recommend you download and use your image or gif in your web root, like this_
+
+_**https://s10.gifyu.com/images/kozu.gif**_
+
+_Change to this_
+
+_**http://YOUR-IP-OR-DOMAIN/kozu.gif**_
+
+_You can download the gif or... in your server with **wget**_
+```bash
+wget https://s10.gifyu.com/images/kozu.gif 
+```
+_Be sure to pay attention to the names to be correct!_
+
 _Remove the **index.nginx-debian.html** file_
 ```bash
 rm index.nginx-debian.html
@@ -471,20 +485,6 @@ img {
     </body>
 </html>
 ```
-_I recommend you download and use your image or gif in your web root, like this_
-
-_**https://s10.gifyu.com/images/kozu.gif**_
-
-_Change to this_
-
-_**http://YOUR-IP-OR-DOMAIN/kozu.gif**_
-
-_You can download the gif or... in your server with **wget**_
-```bash
-wget https://s10.gifyu.com/images/kozu.gif 
-```
-_Be sure to pay attention to the names to be correct!_
-
 _Now go to your **Nginx configuration** for **Redirect** all to **index.html**_
 ```bash
 nano /etc/nginx/sites-enabled/default
@@ -514,11 +514,11 @@ _I recommend reading or viewing these pages_
   - [_**Iran Hosted Domains**_](https://github.com/bootmortis/iran-hosted-domains)
   - [_**Integrated Examples**_](https://github.com/lxhao61/integrated-examples/)
   - [_**REALITY In English**_](https://cscot.pages.dev/2023/03/02/Xray-REALITY-tutorial)
+  - [_**ErFUN-KH ( Full )**_](https://gist.github.com/ErFUN-KH/44eea46014b8d86fc9b7cbf3c53cf1ac)
   - [_**Chika0801**_](https://github.com/chika0801/Xray-examples)
   - [_**Project V**_](https://www.v2ray.com/en/)
   - [_**Dev分享**_](https://idev.dev/)
   - [_**Mr.xiao**_](https://www.losem.tk/)
-  - [_**ErFUN-KH ( Full )**_](https://gist.github.com/ErFUN-KH/44eea46014b8d86fc9b7cbf3c53cf1ac)
 
 _Thanks to the friends for helped me in the web field_
 
