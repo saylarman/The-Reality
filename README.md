@@ -414,6 +414,7 @@ cd /var/www/html/
 _I recommend you download and use your image or gif in your web root, like this_
 
 _**https://s10.gifyu.com/images/kozu.gif**_
+wget https://media.tenor.com/X_g_8OeObRIAAAAM/download.gif
 
 _Change to this_
 
@@ -478,6 +479,68 @@ img {
     <body><img loading="lazy" src="http://YOUR-IP-OR-DOMAIN/kozu.gif" alt="Kozu" class="center">
         <div class="kozu">
             <p>This IP belongs to <span class="isBold">ARSHAM.6IX</span></p>
+        </div>
+    </body>
+</html>
+
+
+
+####
+
+<html>
+    <head>
+        <meta name="viewport" content="user-scalable=no">
+        <meta charset="UTF-8">
+        <title>=)</title>
+        <style>
+body {
+        margin-top: 60px;
+       -webkit-user-select: none;
+       -ms-user-select: none;
+        user-select: none;
+        overflow-x: hidden;
+        background: #FDFAFA;
+        font-weight: 1000;
+        font-family: -apple-system, BlinkMacSystemFont, opensans, Optima, 'Microsoft Yahei', sans-serif;
+        line-height: 0;
+}
+
+.kozu {
+        padding: 40px 0;
+}
+.kozu p {
+        color: #000;
+        font-style: italic;
+        text-decoration:none;
+        letter-spacing: 1px;
+        cursor: default;
+        text-align:center;
+        font-size:70px;
+}
+img {
+        pointer-events: none;
+        margin: auto;
+        display: block;
+}
+.isBold { font-weight: bold;
+}
+a {
+  font-size: 50px;
+}
+
+</style>
+    </head>
+    <body><img loading="lazy" src="/flash.gif" alt="Best4All" class="center">
+        <div class="kozu">
+            <p>This IP belongs to <span class="isBold">Best4All</span></p>
+        <div class="kozu"> <p>           
+        <center>
+/            <a href="https://github.com/2dust/v2rayNG/releases/download/1.8.2/v2rayNG_1.8.2.apk" download>Android</a>
+/            <a href="https://apps.apple.com/us/app/wings-x/id6446119727" download>IOS</a>
+/            <a href="https://github.com/XTLS/Xray-core/releases/download/v1.8.0/Xray-windows-32.zip" download>Windows32</a>
+/           <a href="https://github.com/XTLS/Xray-core/releases/download/v1.8.0/Xray-windows-64.zip" download>Windows64</a>
+/            </center> </p>
+        </div>
         </div>
     </body>
 </html>
